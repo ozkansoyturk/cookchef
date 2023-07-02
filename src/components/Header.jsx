@@ -4,7 +4,7 @@ import logo from "../assets/images/cookchef.png";
 function Header() {
   return (
     <header className={`${styles.header} d-flex flex-row align-items-center`}>
-      <i className="fa-solid fa-bars mr-15"></i>
+      <i className="fa-solid fa-bars fa-xl mr-15"></i>
       <div className="flex-fill">
         <img src={logo} alt="logo" />
       </div>
