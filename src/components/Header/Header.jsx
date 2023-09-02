@@ -1,7 +1,6 @@
-import styles from "./Header.module.scss";
-import cookchef from "../assets/images/cookchef.png";
 import { useState } from "react";
-import HeaderMenu from "./HeaderMenu";
+import styles from "./Header.module.scss";
+import HeaderMenu from "./components/HeaderMenu";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -9,7 +8,10 @@ function Header() {
   return (
     <header className={`${styles.header} d-flex flex-row align-items-center`}>
       <div className="flex-fill">
-        <img src={cookchef} alt="logo cookchef" />
+        <img
+          src="https://github.com/dymafr/react-c5l4/blob/master/src/assets/images/cookchef.png?raw=true"
+          alt="logo cookchef"
+        />
       </div>
       <ul className={styles.headerList}>
         <button className="mr-5 btn btn-reverse-primary">
