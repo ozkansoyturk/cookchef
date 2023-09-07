@@ -41,3 +41,8 @@ function Recipe({ toggleLikedRecipe, recipe: { _id, title, image, liked } }) {
 }
 
 export default Recipe;
+
+Recipe.propTypes = {
+  toggleLikedRecipe: () => {},
+  recipe: () => {},
+};
