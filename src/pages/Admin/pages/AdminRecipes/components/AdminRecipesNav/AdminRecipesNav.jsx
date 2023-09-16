@@ -1,23 +1,23 @@
 import { NavLink } from "react-router-dom";
-import styles from "./AdminNav.module.scss";
+import styles from "./AdminRecipesNav.module.scss";
 
-function AdminNav() {
+function AdminRecipesNav() {
   return (
-    <ul className={`${styles.list} d-flex flex-column`}>
+    <ul className={styles.list}>
       <NavLink
         className={({ isActive }) => (isActive ? styles.active : "")}
-        to="recipes"
+        to="list"
       >
-        Recettes
+        Liste des recettes
       </NavLink>
       <NavLink
         className={({ isActive }) => (isActive ? styles.active : "")}
-        to="users"
+        to="new"
       >
-        Utilisateurs
+        Ajouter une recette
       </NavLink>
     </ul>
   );
 }
 
-export default AdminNav;
+export default AdminRecipesNav;
