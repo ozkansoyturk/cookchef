@@ -2,12 +2,9 @@ import styles from "./AdminRecipesForm.module.scss";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext } from "react";
-import { ApiContext } from "../../../../../../context/ApiContext";
+import { createRecipe } from "../../../../../../apis";
 
 function AdminRecipesForm() {
-  const BASE_URL = useContext(ApiContext);
-
   const defaultValues = {
     title: "",
     image: "",
@@ -40,21 +37,8 @@ function AdminRecipesForm() {
   async function submit(values) {
     try {
       clearErrors();
-      const response = await fetch(BASE_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-      if (response.ok) {
-        reset(defaultValues);
-      } else {
-        setError("generic", {
-          type: "generic",
-          message: "Il y a eu une erreur",
-        });
-      }
+      await createRecipe(values);
+      reset(defaultValues);
     } catch (e) {
       setError("generic", { type: "generic", message: "Il y a eu une erreur" });
     }
